@@ -8,6 +8,7 @@ const removeContact = async contactId => {
     if (index === -1) throw new Error('Error: ID is incorrect');
     const newContacts = contacts.filter(contact => contact.id !== contactId);
     await updateContacts(newContacts);
+    return `Contact (id: ${contactId}) was successfully deleted`;
   } catch (error) {
     return error.message;
   }
