@@ -1,7 +1,7 @@
 const { argv } = require('yargs');
 const contacts = require('./contacts');
 
-function invokeAction({ action, id, name, email, phone }) {
+const invokeAction = async ({ action, id, name, email, phone }) => {
   switch (action) {
     case 'list':
       contacts.listContacts().then(console.table);
@@ -22,6 +22,6 @@ function invokeAction({ action, id, name, email, phone }) {
     default:
       console.warn('\x1B[31m Unknown action type!');
   }
-}
+};
 
 invokeAction(argv);
